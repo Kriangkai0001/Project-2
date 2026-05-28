@@ -1,0 +1,47 @@
+## สเป็กเครื่องที่ใช้เทรน
+
+| รายการ        | รายละเอียด                                      |
+|---------------|-------------------------------------------------|
+| CPU           | Intel Core i5-13420H — 8 cores, 12 threads, max 4.6 GHz |
+| RAM           | 14GB (ว่างอยู่ ~13GB)                           |
+| Disk          | 48GB partition, เหลือ ~30GB                     |
+| GPU           | ไม่มี discrete GPU — มีแค่ Intel UHD Graphics (iGPU ในตัว CPU) |
+| OS            | Ubuntu 26.04 LTS                                |
+
+
+## โมเดลที่ใช้เทรน
+
+- โมเดล: Qwen2.5-1.5B-Instruct
+- วิธี: LoRA (r=16) ผ่าน PEFT
+- Dataset: combined.jsonl.gz — 235,998 Q&A pairs (Networking: Cisco, Aruba, MikroTik, SNMP)
+
+
+## ทำไมถึงเทรนข้อมูลทั้งหมดบนเครื่องนี้ไม่ได้ใน 2-3 วัน
+
+เครื่องนี้ไม่มี discrete GPU เลย Intel UHD Graphics ที่เห็นคือกราฟิกในตัว CPU
+ซึ่งไม่รองรับการเทรน Machine Learning
+
+แม้ว่า i5-13420H จะมี E-cores (Efficiency Cores) รวมถึง Intel GNA
+(Gaussian & Neural Accelerator) แต่ก็ยังไม่เพียงพอ เพราะ:
+
+  - E-cores เพิ่มความเร็วได้ประมาณ 1.5-2 เท่าเท่านั้น
+  - Intel GNA ออกแบบมาสำหรับ inference เบาๆ เช่น speech recognition
+    ไม่ใช่สำหรับเทรน LLM
+
+การประมาณเวลาจริงบน CPU ล้วน:
+  - 235,998 samples x 2 epochs / batch size 2 = ~235,998 steps
+  - แต่ละ step ใช้เวลาประมาณ 30 วินาที
+  - รวมแล้วประมาณ 74 วัน
+
+สรุป: ถ้าต้องการเทรนข้อมูลทั้งหมดภายใน 2-3 วัน ต้องใช้ GPU
+เช่น Google Colab (T4 ฟรี) หรือ RTX 3060 ขึ้นไป
+
+
+## ตัวเลือกถ้าอยากเทรนให้เร็ว
+
+| Hardware             | เวลาโดยประมาณ       |
+|----------------------|---------------------|
+| i5-13420H (CPU)      | ~74 วัน             |
+| Google Colab T4 (ฟรี)| ~1-2 วัน            |
+| RTX 3060             | ~8-12 ชั่วโมง       |
+| Colab Pro A100       | ~2-4 ชั่วโมง        |

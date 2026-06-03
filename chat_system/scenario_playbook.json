@@ -1,0 +1,62 @@
+{
+  "high_cpu": {
+    "title": "CPU ใช้งานสูงวิกฤต",
+    "detected_by": "ARIMA hard rule: cpu_5s ≥ 80%",
+    "description": "CPU สูงเกิน 80% ซึ่งเกินขีดปกติของอุปกรณ์ อาจทำให้ packet forwarding ช้าลงหรือ drop",
+    "advice": "ตรวจสอบว่ามี routing loop หรือ SNMP polling overload รัน 'show processes cpu sorted' และดู syslog ช่วงเวลาเดียวกัน"
+  },
+  "elevated_cpu": {
+    "title": "CPU สูงกว่าปกติ",
+    "detected_by": "Isolation Forest + hard rule: cpu_5s 10–79%",
+    "description": "CPU สูงกว่า baseline ปกติแต่ยังไม่วิกฤต อาจเป็น traffic spike สั้นๆ หรือ background process",
+    "advice": "Monitor ต่อเนื่อง ถ้าสูงนานเกิน 30 นาทีให้ตรวจ process และ correlate กับ traffic ช่วงเดียวกัน"
+  },
+  "high_memory": {
+    "title": "หน่วยความจำใกล้เต็ม",
+    "detected_by": "Isolation Forest: mem_used > 16 MB",
+    "description": "Memory ใช้งานสูงผิดปกติ อาจมี routing table โตขึ้น หรือมี process leak",
+    "advice": "ตรวจ routing table size และ ARP table เปรียบเทียบกับช่วงก่อนหน้า ถ้าเพิ่มขึ้นต่อเนื่องให้พิจารณา reload"
+  },
+  "link_congestion": {
+    "title": "Link ใกล้ถึงขีดจำกัด",
+    "detected_by": "คำนวณจาก ifHighSpeed: in_util_pct ≥ 70%",
+    "description": "Traffic ใช้งาน link มากกว่า 70% ของความเร็วสูงสุด อาจทำให้ latency สูงขึ้นหรือ packet drop",
+    "advice": "ดูว่า traffic มาจากทิศทางใด (in หรือ out) และดู duration ว่าเป็นช่วงสั้นหรือต่อเนื่อง ถ้าเกิดซ้ำบ่อยควรพิจารณา upgrade link"
+  },
+  "traffic_high": {
+    "title": "Traffic สูงกว่าปกติ",
+    "detected_by": "in_util_pct 10–69% และ error rate ปกติ",
+    "description": "Traffic สูงแต่ไม่มี error — น่าจะเป็น backup job, bulk transfer, หรือ user activity สูง ไม่ใช่การโจมตี",
+    "advice": "ตรวจ schedule task ว่ามี backup หรือ sync รันอยู่มั้ย ถ้าไม่มีให้ดู source ของ traffic เพิ่มเติม"
+  },
+  "traffic_flood": {
+    "title": "Traffic ผิดปกติ (pattern)",
+    "detected_by": "Isolation Forest: in_bps ≥ 100M bps แต่ util% ต่ำ",
+    "description": "Isolation Forest ตรวจพบ traffic pattern ผิดปกติจาก baseline แม้ utilization จะยังไม่สูง อาจเป็น burst สั้นๆ หรือ traffic เปลี่ยนรูปแบบ",
+    "advice": "ดู in_bps trend ย้อนหลัง 1 ชั่วโมง และ correlate กับ in_err_rate ถ้า error ปกติน่าจะไม่ใช่ flood จริง"
+  },
+  "traffic_spike": {
+    "title": "Traffic spike สั้นๆ",
+    "detected_by": "Isolation Forest: in_bps ≥ 500 Kbps",
+    "description": "Traffic พุ่งขึ้นสั้นๆ เกิน baseline ปกติ มักเป็น burst จาก application หรือ protocol overhead",
+    "advice": "ถ้าเกิดครั้งเดียวไม่ต้องดำเนินการ ถ้าเกิดซ้ำสม่ำเสมอให้ตรวจ schedule หรือ application ที่อาจส่ง traffic เป็นรอบ"
+  },
+  "port_error": {
+    "title": "Interface Error Rate สูง",
+    "detected_by": "Isolation Forest: in_err_rate > 50",
+    "description": "พบ input error บน interface สูงผิดปกติ มักเกิดจากสาย/SFP มีปัญหา หรือ speed/duplex mismatch",
+    "advice": "ตรวจสาย patch cord และ SFP ก่อน จากนั้นดู duplex setting ระหว่าง port ทั้งสองฝั่ง ถ้าเพิ่งเปลี่ยน config ให้ roll back"
+  },
+  "error_flood": {
+    "title": "Error Rate ท่วม",
+    "detected_by": "Isolation Forest: in_err_rate > 50 (ต่อเนื่องหลาย interval)",
+    "description": "Error rate สูงต่อเนื่อง อาจเกิดจาก loop, STP reconverge, หรือ upstream มีปัญหา",
+    "advice": "ตรวจ Spanning Tree topology ว่ามีการ reconverge อยู่มั้ย และดู upstream device ว่ามี error เช่นกัน"
+  },
+  "device_down": {
+    "title": "อุปกรณ์ขาดการติดต่อ",
+    "detected_by": "Gap detection: ไม่มีข้อมูลนานกว่า 3× interval ปกติ (> 15 นาที)",
+    "description": "ไม่ได้รับข้อมูล SNMP จากอุปกรณ์นานผิดปกติ อาจเกิดจากไฟดับ, uplink ล่ม, หรือ management interface มีปัญหา",
+    "advice": "Ping device ก่อน ถ้าไม่ตอบให้ตรวจ power และ uplink switch ถ้า ping ได้แต่ SNMP ไม่ได้ให้ตรวจ SNMP community string และ ACL"
+  }
+}

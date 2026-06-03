@@ -1,0 +1,602 @@
+[
+  {
+    "id": 1,
+    "category": "CPU",
+    "label": "🖥️ CPU ทุกเครื่อง",
+    "query": "แสดง CPU ล่าสุดของทุก hostname"
+  },
+  {
+    "id": 2,
+    "category": "CPU",
+    "label": "🔴 CPU สูงสุด",
+    "query": "hostname ไหนมี CPU สูงสุดตอนนี้"
+  },
+  {
+    "id": 3,
+    "category": "CPU",
+    "label": "📊 CPU เฉลี่ย 24h",
+    "query": "แสดง CPU เฉลี่ย 24 ชั่วโมงที่ผ่านมาของทุก hostname"
+  },
+  {
+    "id": 4,
+    "category": "CPU",
+    "label": "🖥️ CPU Switch",
+    "query": "แสดง CPU ล่าสุดของ PR-test-sw.netsec.local"
+  },
+  {
+    "id": 5,
+    "category": "CPU",
+    "label": "🖥️ CPU Router",
+    "query": "แสดง CPU ล่าสุดของ RouterProject.mynetwork.com"
+  },
+  {
+    "id": 6,
+    "category": "CPU",
+    "label": "⚠️ CPU เกิน 80%",
+    "query": "แสดงช่วงเวลาที่ CPU สูงกว่า 80% ทั้งหมด"
+  },
+  {
+    "id": 7,
+    "category": "CPU",
+    "label": "📈 CPU ย้อนหลัง 7 วัน",
+    "query": "แสดงประวัติ CPU ของทุก hostname ย้อนหลัง 7 วัน เรียงตามเวลา"
+  },
+  {
+    "id": 8,
+    "category": "CPU",
+    "label": "🔺 CPU สูงสุด Top 5",
+    "query": "แสดง top 5 ช่วงเวลาที่ CPU สูงที่สุดในทุก hostname"
+  },
+  {
+    "id": 9,
+    "category": "CPU",
+    "label": "⚖️ เปรียบ CPU Switch vs Router",
+    "query": "เปรียบเทียบ CPU ล่าสุดระหว่าง switch กับ router"
+  },
+  {
+    "id": 10,
+    "category": "CPU",
+    "label": "📉 CPU ต่ำสุด",
+    "query": "แสดง CPU ต่ำสุดของทุก hostname ใน 24 ชั่วโมงที่ผ่านมา"
+  },
+  {
+    "id": 11,
+    "category": "Memory",
+    "label": "💾 Memory ทุกเครื่อง",
+    "query": "แสดง memory ที่ใช้และว่างล่าสุดของทุก hostname"
+  },
+  {
+    "id": 12,
+    "category": "Memory",
+    "label": "⚠️ Memory เกิน 80%",
+    "query": "hostname ไหนใช้ memory เกิน 80% ตอนนี้"
+  },
+  {
+    "id": 13,
+    "category": "Memory",
+    "label": "💾 Memory Switch",
+    "query": "แสดง memory ล่าสุดของ PR-test-sw.netsec.local"
+  },
+  {
+    "id": 14,
+    "category": "Memory",
+    "label": "💾 Memory Router",
+    "query": "แสดง memory ล่าสุดของ RouterProject.mynetwork.com"
+  },
+  {
+    "id": 15,
+    "category": "Memory",
+    "label": "📊 Memory เฉลี่ย",
+    "query": "แสดง memory usage เฉลี่ยของทุก device"
+  },
+  {
+    "id": 16,
+    "category": "Memory",
+    "label": "📈 Memory สูงสุด 7 วัน",
+    "query": "แสดงช่วงเวลาที่ memory ใช้สูงสุดของทุก hostname ใน 7 วันที่ผ่านมา"
+  },
+  {
+    "id": 17,
+    "category": "Memory",
+    "label": "🔴 Memory วิกฤต",
+    "query": "แสดงช่วงเวลาที่ memory free ต่ำกว่า 5MB ทั้งหมด"
+  },
+  {
+    "id": 18,
+    "category": "Memory",
+    "label": "⚖️ เปรียบ Memory",
+    "query": "เปรียบเทียบ memory ล่าสุดระหว่าง switch กับ router"
+  },
+  {
+    "id": 19,
+    "category": "Memory",
+    "label": "💾 Memory ย้อนหลัง 24h",
+    "query": "แสดงประวัติ memory ใช้และว่างของทุก hostname ใน 24 ชั่วโมงที่ผ่านมา"
+  },
+  {
+    "id": 20,
+    "category": "Memory",
+    "label": "📊 สัดส่วน Memory",
+    "query": "แสดง % memory ที่ใช้ของทุก hostname ล่าสุด"
+  },
+  {
+    "id": 21,
+    "category": "Interface",
+    "label": "🌐 Interface Status",
+    "query": "แสดงสถานะ interface ล่าสุดของทุก hostname"
+  },
+  {
+    "id": 22,
+    "category": "Interface",
+    "label": "🔴 Port ที่ Down",
+    "query": "แสดง interface ที่ operStatus เป็น Down ทั้งหมดตอนนี้"
+  },
+  {
+    "id": 23,
+    "category": "Interface",
+    "label": "🟢 Port ที่ Up",
+    "query": "แสดงเฉพาะ interface ที่ operStatus เป็น Up ทั้งหมด"
+  },
+  {
+    "id": 24,
+    "category": "Interface",
+    "label": "🌐 VLAN Interface",
+    "query": "แสดงสถานะ Vlan interface ทั้งหมดบน switch"
+  },
+  {
+    "id": 25,
+    "category": "Interface",
+    "label": "⚡ Interface Speed",
+    "query": "แสดง interface speed ของทุก port บน switch และ router"
+  },
+  {
+    "id": 26,
+    "category": "Interface",
+    "label": "🚫 Admin Down",
+    "query": "แสดง port ที่ AdminStatus เป็น Down ทั้งหมด"
+  },
+  {
+    "id": 27,
+    "category": "Interface",
+    "label": "🌐 Interface Router",
+    "query": "แสดงสถานะ interface ล่าสุดทั้งหมดของ RouterProject.mynetwork.com"
+  },
+  {
+    "id": 28,
+    "category": "Interface",
+    "label": "📋 Interface Switch",
+    "query": "แสดงสถานะ interface ล่าสุดทั้งหมดของ PR-test-sw.netsec.local"
+  },
+  {
+    "id": 29,
+    "category": "Interface",
+    "label": "🔌 MAC Address",
+    "query": "แสดง MAC address ของทุก interface ที่มีค่า"
+  },
+  {
+    "id": 30,
+    "category": "Interface",
+    "label": "📊 Interface Count",
+    "query": "นับจำนวน interface ที่ Up และ Down แยกตาม hostname"
+  },
+  {
+    "id": 31,
+    "category": "Traffic",
+    "label": "📡 Traffic ทุก Interface",
+    "query": "แสดง traffic ขาเข้าและขาออกสะสมล่าสุดของทุก interface"
+  },
+  {
+    "id": 32,
+    "category": "Traffic",
+    "label": "🔺 Traffic สูงสุด",
+    "query": "interface ไหนมี traffic สะสมสูงสุดตอนนี้ เรียง top 10"
+  },
+  {
+    "id": 33,
+    "category": "Traffic",
+    "label": "📡 Traffic Uplink",
+    "query": "แสดง traffic ล่าสุดของ interface ACCESS-UPLINK บน switch"
+  },
+  {
+    "id": 34,
+    "category": "Traffic",
+    "label": "🚫 Port ไม่มี Traffic",
+    "query": "แสดง interface ที่มี traffic in และ out เป็น 0 ทั้งคู่ (unused port)"
+  },
+  {
+    "id": 35,
+    "category": "Traffic",
+    "label": "🔴 Traffic Flood Anomaly",
+    "query": "แสดง traffic_flood anomaly ทั้งหมด พร้อม in_bps และ out_bps"
+  },
+  {
+    "id": 36,
+    "category": "Traffic",
+    "label": "📊 Traffic In vs Out",
+    "query": "เปรียบเทียบ traffic ขาเข้า vs ขาออกล่าสุดของทุก interface บน switch"
+  },
+  {
+    "id": 37,
+    "category": "Traffic",
+    "label": "📡 Traffic Gi0/0 Router",
+    "query": "แสดง traffic ล่าสุดของ interface Gi0/0 บน RouterProject.mynetwork.com"
+  },
+  {
+    "id": 38,
+    "category": "Traffic",
+    "label": "📡 Traffic Gi0/1 Router",
+    "query": "แสดง traffic ล่าสุดของ interface Gi0/1 บน RouterProject.mynetwork.com"
+  },
+  {
+    "id": 39,
+    "category": "Traffic",
+    "label": "📈 Traffic Anomaly ล่าสุด",
+    "query": "แสดงช่วงเวลาที่ traffic ผิดปกติ (in_bps หรือ out_bps สูงผิดปกติ) ล่าสุด 10 รายการ"
+  },
+  {
+    "id": 40,
+    "category": "Traffic",
+    "label": "📊 Traffic สรุปรายวัน",
+    "query": "สรุปจำนวน traffic_flood anomaly แต่ละวันใน 7 วันที่ผ่านมา"
+  },
+  {
+    "id": 41,
+    "category": "Syslog",
+    "label": "🚨 Syslog Error/Critical",
+    "query": "แสดง syslog ที่ severity เป็น error หรือ critical ล่าสุด 20 รายการ"
+  },
+  {
+    "id": 42,
+    "category": "Syslog",
+    "label": "📊 สรุป Syslog ทุก Severity",
+    "query": "สรุปจำนวน syslog แต่ละ severity ทั้งหมด"
+  },
+  {
+    "id": 43,
+    "category": "Syslog",
+    "label": "🟡 Syslog Warning",
+    "query": "แสดง syslog warning ล่าสุด 20 รายการ"
+  },
+  {
+    "id": 44,
+    "category": "Syslog",
+    "label": "📡 Source IP ส่ง Log มากสุด",
+    "query": "device (source IP) ไหนส่ง syslog มากที่สุด นับแยกตาม source"
+  },
+  {
+    "id": 45,
+    "category": "Syslog",
+    "label": "📋 Syslog ทั้งหมด",
+    "query": "แสดง syslog ล่าสุด 50 รายการทุก severity"
+  },
+  {
+    "id": 46,
+    "category": "Syslog",
+    "label": "🔴 Syslog Critical 7 วัน",
+    "query": "แสดง syslog critical ที่เกิดขึ้นใน 7 วันที่ผ่านมาทั้งหมด"
+  },
+  {
+    "id": 47,
+    "category": "Syslog",
+    "label": "📋 Syslog มี Message",
+    "query": "แสดง syslog ทั้งหมดที่มี message ล่าสุด 30 รายการ"
+  },
+  {
+    "id": 48,
+    "category": "Syslog",
+    "label": "🌐 Syslog IP Fragmentation",
+    "query": "แสดง syslog ที่ message เกี่ยวกับ fragment หรือ overflow ล่าสุด"
+  },
+  {
+    "id": 49,
+    "category": "Syslog",
+    "label": "📊 Syslog รายชั่วโมง",
+    "query": "นับจำนวน syslog แยกตามชั่วโมงใน 24 ชั่วโมงที่ผ่านมา"
+  },
+  {
+    "id": 50,
+    "category": "Syslog",
+    "label": "📡 Syslog แต่ละ Source",
+    "query": "แสดงจำนวน syslog แต่ละ severity แยกตาม source IP"
+  },
+  {
+    "id": 51,
+    "category": "Anomaly",
+    "label": "🔴 Anomaly ล่าสุด",
+    "query": "แสดง anomaly ล่าสุด 10 รายการ พร้อม scenario และค่า CPU, Memory, Traffic"
+  },
+  {
+    "id": 52,
+    "category": "Anomaly",
+    "label": "📊 สรุป Anomaly Scenario",
+    "query": "สรุป anomaly แต่ละ scenario ว่ามีกี่ครั้ง เรียงจากมากไปน้อย"
+  },
+  {
+    "id": 53,
+    "category": "Anomaly",
+    "label": "🔴 High Memory Anomaly",
+    "query": "แสดง high_memory anomaly ล่าสุด 10 รายการ"
+  },
+  {
+    "id": 54,
+    "category": "Anomaly",
+    "label": "🌊 Traffic Flood Anomaly",
+    "query": "แสดง traffic_flood anomaly ล่าสุด 10 รายการ พร้อม in_bps และ out_bps"
+  },
+  {
+    "id": 55,
+    "category": "Anomaly",
+    "label": "🔌 Port Error Anomaly",
+    "query": "แสดง port_error anomaly ทั้งหมด พร้อม in_err_rate"
+  },
+  {
+    "id": 56,
+    "category": "Anomaly",
+    "label": "🖥️ High CPU Anomaly",
+    "query": "แสดง high_cpu anomaly ทั้งหมด พร้อม cpu_5s"
+  },
+  {
+    "id": 57,
+    "category": "Anomaly",
+    "label": "❓ Unknown Anomaly",
+    "query": "แสดง unknown_anomaly ล่าสุด 10 รายการ พร้อมค่า CPU Memory Traffic"
+  },
+  {
+    "id": 58,
+    "category": "Anomaly",
+    "label": "📊 Normal vs Anomaly",
+    "query": "เปรียบเทียบจำนวน normal vs anomaly ทั้งหมดใน ml_isolation_forest"
+  },
+  {
+    "id": 59,
+    "category": "Anomaly",
+    "label": "🔺 Anomaly Score ต่ำสุด",
+    "query": "แสดง anomaly score ต่ำสุด 10 อันดับ (ผิดปกติมากที่สุด)"
+  },
+  {
+    "id": 60,
+    "category": "Anomaly",
+    "label": "📅 Anomaly 24h ล่าสุด",
+    "query": "แสดง anomaly ที่เกิดขึ้นใน 24 ชั่วโมงที่ผ่านมาทั้งหมด"
+  },
+  {
+    "id": 61,
+    "category": "Security",
+    "label": "🔐 Login ผิดปกติ",
+    "query": "มีการ login ผิดปกติหรือ brute force ไหม"
+  },
+  {
+    "id": 62,
+    "category": "Security",
+    "label": "🔑 SSH Error",
+    "query": "ตรวจสอบ SSH error ล่าสุดทั้งหมด"
+  },
+  {
+    "id": 63,
+    "category": "Security",
+    "label": "🚨 Brute Force",
+    "query": "IP ไหนพยายาม login ล้มเหลวบ่อยที่สุด แสดงจำนวนและช่วงเวลา"
+  },
+  {
+    "id": 64,
+    "category": "Security",
+    "label": "✅ Login สำเร็จ",
+    "query": "แสดงประวัติ login สำเร็จทั้งหมดพร้อม source IP และ user"
+  },
+  {
+    "id": 65,
+    "category": "Security",
+    "label": "❌ Authentication Failed",
+    "query": "แสดง SSH authentication failed ทั้งหมดล่าสุด 20 รายการ"
+  },
+  {
+    "id": 66,
+    "category": "Security",
+    "label": "⚠️ Failed แล้ว Success",
+    "query": "IP ไหน login สำเร็จหลังจาก failed หลายครั้ง (อาจเจาะระบบสำเร็จ)"
+  },
+  {
+    "id": 67,
+    "category": "Security",
+    "label": "📊 Security Event สรุป",
+    "query": "สรุปเหตุการณ์ security ทั้งหมด จำนวน failed และ success แยกตาม source IP"
+  },
+  {
+    "id": 68,
+    "category": "Security",
+    "label": "🔍 SSH Algorithm Mismatch",
+    "query": "แสดง syslog ที่เกี่ยวกับ SSH NO_MATCH หรือ UNEXPECTED_MSG ทั้งหมด"
+  },
+  {
+    "id": 69,
+    "category": "Security",
+    "label": "📋 Authentication Log",
+    "query": "แสดง syslog ที่เกี่ยวกับ authentication ทั้งหมดล่าสุด 30 รายการ"
+  },
+  {
+    "id": 70,
+    "category": "Security",
+    "label": "🕐 Security Timeline",
+    "query": "แสดง timeline เหตุการณ์ security ทั้งหมดเรียงตามเวลา"
+  },
+  {
+    "id": 71,
+    "category": "ARIMA",
+    "label": "📈 ARIMA Anomaly ล่าสุด",
+    "query": "แสดง ARIMA anomaly ล่าสุดทั้งหมด พร้อม feature, actual, predicted, residual"
+  },
+  {
+    "id": 72,
+    "category": "ARIMA",
+    "label": "📈 ARIMA CPU Anomaly",
+    "query": "แสดง ARIMA anomaly ของ CPU ล่าสุด 10 รายการ"
+  },
+  {
+    "id": 73,
+    "category": "ARIMA",
+    "label": "📈 ARIMA Memory Anomaly",
+    "query": "แสดง ARIMA anomaly ของ memory ล่าสุด 10 รายการ"
+  },
+  {
+    "id": 74,
+    "category": "ARIMA",
+    "label": "📈 ARIMA Traffic In",
+    "query": "แสดง ARIMA anomaly ของ traffic ขาเข้า (in_bps) ล่าสุด 10 รายการ"
+  },
+  {
+    "id": 75,
+    "category": "ARIMA",
+    "label": "📈 ARIMA Traffic Out",
+    "query": "แสดง ARIMA anomaly ของ traffic ขาออก (out_bps) ล่าสุด 10 รายการ"
+  },
+  {
+    "id": 76,
+    "category": "ARIMA",
+    "label": "📊 ARIMA Feature บ่อยสุด",
+    "query": "feature ไหนมี ARIMA anomaly บ่อยที่สุด สรุปจำนวนแยกตาม feature"
+  },
+  {
+    "id": 77,
+    "category": "ARIMA",
+    "label": "🔺 ARIMA Residual สูงสุด",
+    "query": "แสดง ARIMA residual สูงสุด 10 อันดับ (เกิน threshold มากที่สุด)"
+  },
+  {
+    "id": 78,
+    "category": "ARIMA",
+    "label": "⚖️ Actual vs Predicted CPU",
+    "query": "เปรียบเทียบค่า actual vs predicted ของ CPU จาก ARIMA ล่าสุด 10 รายการ"
+  },
+  {
+    "id": 79,
+    "category": "ARIMA",
+    "label": "⚖️ Actual vs Predicted Memory",
+    "query": "เปรียบเทียบค่า actual vs predicted ของ memory จาก ARIMA ล่าสุด 10 รายการ"
+  },
+  {
+    "id": 80,
+    "category": "ARIMA",
+    "label": "📅 ARIMA Anomaly 7 วัน",
+    "query": "นับจำนวน ARIMA anomaly แยกตามวันใน 7 วันที่ผ่านมา"
+  },
+  {
+    "id": 81,
+    "category": "Summary",
+    "label": "📊 สรุประบบตอนนี้",
+    "query": "สรุปสถานะระบบทั้งหมดตอนนี้ ได้แก่ CPU, Memory, Interface ที่ Down, Anomaly ล่าสุด"
+  },
+  {
+    "id": 82,
+    "category": "Summary",
+    "label": "📋 รายงานประจำวัน",
+    "query": "รายงานสรุปประจำวัน: CPU, Memory, Interface, Anomaly และ Syslog Error ล่าสุด"
+  },
+  {
+    "id": 83,
+    "category": "Summary",
+    "label": "🔴 Device ที่มีปัญหา",
+    "query": "device ไหนมีปัญหามากที่สุด นับจาก anomaly และ syslog error"
+  },
+  {
+    "id": 84,
+    "category": "Summary",
+    "label": "📅 เหตุการณ์ผิดปกติ 24h",
+    "query": "สรุปเหตุการณ์ผิดปกติทั้งหมดใน 24 ชั่วโมงที่ผ่านมา (anomaly, syslog, error)"
+  },
+  {
+    "id": 85,
+    "category": "Summary",
+    "label": "🌐 Network Health",
+    "query": "แสดงภาพรวม health ของระบบ network: interface ที่ Down, anomaly, syslog error"
+  },
+  {
+    "id": 86,
+    "category": "Summary",
+    "label": "🔧 Interface ต้องดูแล",
+    "query": "interface ไหนต้องการความสนใจมากที่สุด (มี error, discard, หรือ Down)"
+  },
+  {
+    "id": 87,
+    "category": "Summary",
+    "label": "📉 Interface Errors Top 10",
+    "query": "แสดง interface ที่มี error หรือ discard สูงสุด 10 อันดับแรก"
+  },
+  {
+    "id": 88,
+    "category": "Summary",
+    "label": "🚨 Anomaly + Syslog 24h",
+    "query": "สรุป anomaly และ syslog error ที่เกิดในช่วง 24 ชั่วโมงล่าสุด"
+  },
+  {
+    "id": 89,
+    "category": "Summary",
+    "label": "🔁 ปัญหาที่เกิดซ้ำ",
+    "query": "แสดงปัญหาที่เกิดซ้ำมากที่สุดในระบบ (anomaly scenario และ syslog source)"
+  },
+  {
+    "id": 90,
+    "category": "Summary",
+    "label": "📋 รายงานสัปดาห์",
+    "query": "รายงานสรุปสัปดาห์: จำนวน anomaly แต่ละ scenario, syslog error, interface ที่มีปัญหา"
+  },
+  {
+    "id": 91,
+    "category": "Uptime",
+    "label": "⏱️ Uptime ทุกเครื่อง",
+    "query": "แสดง uptime ของทุก hostname เรียงจากมากไปน้อย"
+  },
+  {
+    "id": 92,
+    "category": "Uptime",
+    "label": "⏱️ Uptime Switch",
+    "query": "แสดง uptime ล่าสุดของ PR-test-sw.netsec.local เป็นกี่วัน"
+  },
+  {
+    "id": 93,
+    "category": "Uptime",
+    "label": "⏱️ Uptime Router",
+    "query": "แสดง uptime ล่าสุดของ RouterProject.mynetwork.com เป็นกี่วัน"
+  },
+  {
+    "id": 94,
+    "category": "Uptime",
+    "label": "⚡ Uptime น้อยสุด",
+    "query": "device ไหนมี uptime น้อยที่สุด (reboot ล่าสุด)"
+  },
+  {
+    "id": 95,
+    "category": "Uptime",
+    "label": "📈 Uptime ย้อนหลัง 7 วัน",
+    "query": "แสดงประวัติ uptime ของทุก hostname ย้อนหลัง 7 วัน"
+  },
+  {
+    "id": 96,
+    "category": "Uptime",
+    "label": "🔁 Device ที่ Reboot บ่อย",
+    "query": "device ไหนมีค่า uptime ต่ำผิดปกติ (อาจ reboot บ่อย)"
+  },
+  {
+    "id": 97,
+    "category": "Uptime",
+    "label": "⏱️ Uptime เกิน 30 วัน",
+    "query": "device ที่มี uptime เกิน 30 วันมีเครื่องไหนบ้าง"
+  },
+  {
+    "id": 98,
+    "category": "Uptime",
+    "label": "⚖️ เปรียบ Uptime",
+    "query": "เปรียบเทียบ uptime ระหว่าง switch และ router ล่าสุด"
+  },
+  {
+    "id": 99,
+    "category": "Uptime",
+    "label": "🏆 Online นานที่สุด",
+    "query": "device ที่ online นานที่สุดคืออะไร แสดง uptime เป็นวันและชั่วโมง"
+  },
+  {
+    "id": 100,
+    "category": "Uptime",
+    "label": "📅 Uptime เฉลี่ย",
+    "query": "แสดง uptime เฉลี่ยของทุก device ในรูปแบบวันและชั่วโมง"
+  }
+]

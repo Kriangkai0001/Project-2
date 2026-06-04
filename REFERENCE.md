@@ -159,7 +159,7 @@ active      boolean DEFAULT true
 | Model | ขนาด | ใช้งาน |
 |-------|------|-------|
 | qwen2.5:3b | ~2GB | **ใช้งานหลัก** — SQL gen + analyze |
-| qwen2.5:3b | ~2GB | สำรอง |
+| qwen2.5:1.5b | ~1GB | สำรอง (เบากว่า) |
 | llama3.1:latest | ~4.7GB | สำรอง |
 
 ---
@@ -194,24 +194,37 @@ active      boolean DEFAULT true
 
 ## 6. RAG Knowledge Base
 
+**Flow:**
+```
+แหล่งข้อมูล (Stack Exchange, Reddit, Vendor docs)
+  → combined.jsonl          (235,998 records EN)
+  → embed → embed_p1.npz    (English vectors 676MB)
+
+combined.jsonl → แปลด้วย Google Translate
+  → combined_th_full.jsonl  (236,568 records TH)
+  → embed → embed_p2.npz    (Thai vectors 667MB)
+
+build_faiss.py:
+  embed_p1.npz + embed_p2.npz → faiss_index.bin
+```
+
+**ไฟล์ที่ใช้งานจริง:**
 | ไฟล์ | ขนาด | เนื้อหา |
 |------|------|--------|
-| faiss_index.bin | 807MB | FAISS vector index |
-| faiss_meta.pkl | 445MB | Q+A metadata |
-| combined_th_full.jsonl | 809MB | 236,568 pairs Thai |
-| embed_p1.npz | 676MB | English vectors |
-| embed_p2.npz | 667MB | Thai vectors |
+| faiss_index.bin | 807MB | FAISS vector index (ใช้งาน) |
+| faiss_meta.pkl | 445MB | Q+A metadata (ใช้งาน) |
+| combined.jsonl | 257MB | ต้นทาง English |
+| combined_th_full.jsonl | 809MB | ต้นทาง Thai |
+| embed_p1.npz | 676MB | English vectors (source) |
+| embed_p2.npz | 667MB | Thai vectors (source) |
 
-**แหล่งข้อมูล training:**
-- Stack Overflow / serverfault — network Q&A
-- security.stackexchange.com
-- networkengineering.stackexchange.com
-- SNMP special topics
+**แหล่งข้อมูล:**
+- serverfault, security SE, networkengineering SE, SNMP topics
 - Reddit (r/networking, r/sysadmin)
 - Vendor docs (Cisco, Aruba, UniFi, MikroTik, Fortinet)
 
 **Embed model:** all-MiniLM-L6-v2
-**Total vectors:** 550,774 (English 314k + Thai 236k)
+**Total vectors:** 550,774
 
 ---
 

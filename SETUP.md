@@ -393,7 +393,7 @@ nohup /opt/net-chat/train-model-chat/venv/bin/python3 /opt/dashboard-grafana/gra
 ### 8.1 ติดตั้ง Python packages
 
 ```bash
-pip install sentence-transformers faiss-cpu chromadb fastapi uvicorn
+pip install sentence-transformers faiss-cpu fastapi uvicorn
 ```
 
 ### 8.2 เตรียม Training Data
@@ -411,7 +411,7 @@ pip install sentence-transformers faiss-cpu chromadb fastapi uvicorn
 ```bash
 cd /opt/net-chat/rag
 
-# สร้าง index จาก ChromaDB + Thai embeddings
+# สร้าง FAISS index จาก embed_p1.npz (EN) + embed_p2.npz (TH)
 python3 build_faiss.py
 # → faiss_index.bin (807MB)
 # → faiss_meta.pkl (445MB)

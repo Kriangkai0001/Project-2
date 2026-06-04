@@ -16,7 +16,7 @@
 
 ประกอบด้วย 2 ส่วนหลัก:
 - **ML Pipeline** — IsolationForest + ARIMA ตรวจจับ anomaly และจำแนก scenario
-- **Chat System** — RAG + qwen2.5:1.5b (Ollama) ตอบคำถาม network จาก DB + knowledge base
+- **Chat System** — RAG + qwen2.5:3b (Ollama) ตอบคำถาม network จาก DB + knowledge base
 
 ---
 
@@ -60,7 +60,7 @@
 | Database | PostgreSQL 16 (edgedb) |
 | Dashboard | Grafana 8888 |
 | ML | scikit-learn (IsolationForest), statsmodels (ARIMA), Python 3.12 |
-| LLM | Ollama — qwen2.5:1.5b |
+| LLM | Ollama — qwen2.5:3b |
 | Chat API | Node.js + PM2 |
 | RAG | FAISS (550,774 vectors EN+TH), sentence-transformers |
 | Knowledge Graph | Python FastAPI |

@@ -193,16 +193,16 @@ GET  /health           — health check
   ├─ [Knowledge routing]
   │   คืออะไร/หมายถึง/explain/what is
   │   (ไม่ใช่คำถามใน DB: ระบบ/ล่าสุด/สถานะ)
-  │   → callRAG() → qwen2.5:1.5b ตอบ
+  │   → callRAG() → qwen2.5:3b ตอบ
   │
   ├─ [SQL Template] — 12 patterns
   │   match pattern → SQL สำเร็จรูป → query DB
-  │   → qwen2.5:1.5b วิเคราะห์ผล
+  │   → qwen2.5:3b วิเคราะห์ผล
   │
   └─ [qwen SQL gen]
-      qwen2.5:1.5b สร้าง SQL → query DB
+      qwen2.5:3b สร้าง SQL → query DB
       → UNSAFE? → fallback RAG
-      → มีผล → qwen2.5:1.5b วิเคราะห์
+      → มีผล → qwen2.5:3b วิเคราะห์
 ```
 
 **Session:**

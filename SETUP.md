@@ -351,7 +351,7 @@ npm install
 curl -fsSL https://ollama.com/install.sh | sh
 
 # โหลด model
-ollama pull qwen2.5:1.5b
+ollama pull qwen2.5:3b
 ```
 
 ### 7.3 สร้าง `.env`
@@ -363,7 +363,7 @@ DB_NAME=edgedb
 DB_USER=netsec
 DB_PASSWORD=Netsec123
 OLLAMA_URL=http://localhost:11434
-OLLAMA_MODEL=qwen2.5:1.5b
+OLLAMA_MODEL=qwen2.5:3b
 OLLAMA_TIMEOUT=120000
 RAG_URL=http://127.0.0.1:5002
 GRAPH_URL=http://127.0.0.1:5003

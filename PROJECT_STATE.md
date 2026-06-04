@@ -101,7 +101,7 @@ User (Grafana panel)
        ├─ Graph service :5003   → topology / "มีระบบ/support" + protocol keyword
        ├─ RAG (FAISS) :5002     → "คืออะไร / explain / what is"
        ├─ SQL Template (12 แบบ) → คำถาม DB ที่รู้จัก (ไม่ผ่าน qwen SQL gen)
-       └─ qwen2.5:1.5b (Ollama) → สร้าง SQL / วิเคราะห์ผล / ตอบ knowledge
+       └─ qwen2.5:3b (Ollama) → สร้าง SQL / วิเคราะห์ผล / ตอบ knowledge
 ```
 
 ### SQL Templates (12 แบบ ใน server.js)
@@ -194,7 +194,7 @@ User (Grafana panel)
 
 | model | ใช้ทำอะไร | รันที่ |
 |-------|---------|-------|
-| `qwen2.5:1.5b` | สร้าง SQL, วิเคราะห์ผล DB, ตอบ knowledge | Ollama (local) |
+| `qwen2.5:3b` | สร้าง SQL, วิเคราะห์ผล DB, ตอบ knowledge | Ollama (local) |
 | `qwen2.5:3b` | ติดตั้งไว้ (สำรอง) | Ollama (local) |
 | `llama3.1:latest` | ติดตั้งไว้ (สำรอง) | Ollama (local) |
 

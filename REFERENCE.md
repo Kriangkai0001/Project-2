@@ -158,7 +158,7 @@ active      boolean DEFAULT true
 
 | Model | ขนาด | ใช้งาน |
 |-------|------|-------|
-| qwen2.5:1.5b | ~1GB | **ใช้งานหลัก** — SQL gen + analyze |
+| qwen2.5:3b | ~2GB | **ใช้งานหลัก** — SQL gen + analyze |
 | qwen2.5:3b | ~2GB | สำรอง |
 | llama3.1:latest | ~4.7GB | สำรอง |
 
@@ -224,7 +224,7 @@ DB_NAME=edgedb
 DB_USER=netsec
 DB_PASSWORD=Netsec123
 OLLAMA_URL=http://localhost:11434
-OLLAMA_MODEL=qwen2.5:1.5b
+OLLAMA_MODEL=qwen2.5:3b
 OLLAMA_TIMEOUT=120000
 RAG_URL=http://127.0.0.1:5002
 GRAPH_URL=http://127.0.0.1:5003

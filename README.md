@@ -62,7 +62,7 @@
 | ML | scikit-learn (IsolationForest), statsmodels (ARIMA), Python 3.12 |
 | LLM | Ollama — qwen2.5:3b |
 | Chat API | Node.js + PM2 |
-| RAG | FAISS (550,774 vectors EN+TH), sentence-transformers |
+| RAG | FAISS (708,562 vectors EN+TH+TH), sentence-transformers |
 | Knowledge Graph | Python FastAPI |
 
 ---

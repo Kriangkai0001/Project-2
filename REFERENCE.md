@@ -205,7 +205,7 @@ combined.jsonl → แปลด้วย Google Translate
   → embed → embed_p2.npz    (Thai vectors 667MB)
 
 build_faiss.py:
-  embed_p1.npz + embed_p2.npz → faiss_index.bin
+  embed_p1.npz + embed_p2.npz + embed_0.npz → faiss_index.bin
 ```
 
 **ไฟล์ที่ใช้งานจริง:**
@@ -215,8 +215,9 @@ build_faiss.py:
 | faiss_meta.pkl | 445MB | Q+A metadata (ใช้งาน) |
 | combined.jsonl | 257MB | ต้นทาง English |
 | combined_th_full.jsonl | 809MB | ต้นทาง Thai |
-| embed_p1.npz | 676MB | English vectors (source) |
-| embed_p2.npz | 667MB | Thai vectors (source) |
+| embed_p1.npz | 676MB | TH Q+EN A vectors (source) |
+| embed_p2.npz | 667MB | Thai Q+TH A vectors |
+| embed_0.npz | 668MB | EN Q+EN A vectors (source) |
 
 **แหล่งข้อมูล:**
 - serverfault, security SE, networkengineering SE, SNMP topics
@@ -224,7 +225,7 @@ build_faiss.py:
 - Vendor docs (Cisco, Aruba, UniFi, MikroTik, Fortinet)
 
 **Embed model:** all-MiniLM-L6-v2
-**Total vectors:** 550,774
+**Total vectors:** 708,562
 
 ---
 

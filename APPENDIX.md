@@ -339,7 +339,7 @@ POST /query  {"question": str, "n_results": int}
 GET  /status → {"docs": 550774, "engine": "faiss"}
 ```
 
-**ข้อมูลใน index:** 550,774 vectors
+**ข้อมูลใน index:** 708,562 vectors
 - English Q&A จาก Stack Exchange (network topics)
 - Thai Q&A (แปลจาก Google Translate)
 - scenario_playbook descriptions

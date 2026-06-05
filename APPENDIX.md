@@ -348,21 +348,25 @@ GET  /status → {"docs": 550774, "engine": "faiss"}
 
 ### `build_faiss.py`
 **ที่อยู่จริง:** `/opt/net-chat/rag/build_faiss.py`
-**ทำอะไร:** สร้าง FAISS index จาก embed_p1 (English) + embed_p2 (Thai) แล้วบันทึก
+**ทำอะไร:** สร้าง FAISS index จาก embed_p1 + embed_p2 + embed_0 แล้วบันทึก
 
-**Source 1 — embed_p1.npz (English):**
-- มาจาก combined.jsonl (235,998 records) → embed ด้วย sentence-transformers
+**Source 1 — embed_p1.npz (TH Q + EN A):**
+- มาจาก combined_th.jsonl (235,998 records แปล instruction→Thai) → embed
 - เก็บเป็น .npz
 
-**Source 2 — embed_p2.npz (Thai):**
-- มาจาก combined_th_full.jsonl (236,568 records) → embed
+**Source 2 — embed_p2.npz (TH Q + TH A):**
+- มาจาก combined_th_full.jsonl (236,568 records แปล output→Thai) → embed
+- เก็บเป็น .npz
+
+**Source 3 — embed_0.npz (EN Q + EN A):**
+- มาจาก combined.jsonl (235,998 records Stack Exchange English) → embed
 - เก็บเป็น .npz
 
 **Output:**
 ```
 faiss_index.bin — FAISS IndexFlatIP (Inner Product = cosine similarity)
 faiss_meta.pkl  — list of {q, a} metadata
-total: 550,774 vectors
+total: 708,562 vectors  (p1: 235,998 + p2: 236,566 + embed_0: 235,998)
 ```
 
 ---

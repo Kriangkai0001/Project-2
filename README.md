@@ -20,14 +20,22 @@
 
 ---
 
-## เอกสาร
+## เอกสารหลัก
 
 | ไฟล์ | เนื้อหา |
 |------|--------|
 | [PROJECT_STATE.md](PROJECT_STATE.md) | ภาพรวมระบบ, flow, สถานะปัจจุบัน, ผลทดสอบ |
-| [SETUP.md](SETUP.md) | ขั้นตอนติดตั้งตั้งแต่ต้น (OS → Network → DB → Telegraf → Grafana → ML → Chat → RAG) |
 | [REFERENCE.md](REFERENCE.md) | DB schema ทุก table, ports, env vars, hardware spec |
-| [APPENDIX.md](APPENDIX.md) | อธิบาย code ทุกไฟล์ — input/output/logic |
+
+## ผนวก
+
+| ผนวก | ไฟล์ | เนื้อหา |
+|------|------|--------|
+| ก | [APPENDIX_A.md](APPENDIX_A.md) | โทโพโลยี + ติดตั้ง Linux + Config SW/Router (IP, SNMP, Syslog) |
+| ข | [APPENDIX_B.md](APPENDIX_B.md) | ติดตั้ง Services ทั้งหมด: PostgreSQL, Telegraf, Grafana, venv ML, Node.js, Ollama, RAG |
+| ค | [APPENDIX_C.md](APPENDIX_C.md) | Config และ Code ทั้งหมด: SNMP, DB schema, ML Pipeline, Chat System, RAG |
+| ง | [APPENDIX_D.md](APPENDIX_D.md) | ผลทดสอบ 100 คำถาม (93/100) — ตารางครบทุกข้อ |
+| จ | [APPENDIX_E.md](APPENDIX_E.md) | เอกสารอ้างอิง + links ไปยัง code/config แต่ละส่วน |
 
 ---
 

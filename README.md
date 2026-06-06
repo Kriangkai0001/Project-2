@@ -34,7 +34,7 @@
 | ก | [APPENDIX_A.md](APPENDIX_A.md) | โทโพโลยี + ติดตั้ง Linux + Config SW/Router (IP, SNMP, Syslog) |
 | ข | [APPENDIX_B.md](APPENDIX_B.md) | ติดตั้ง Services ทั้งหมด: PostgreSQL, Telegraf, Grafana, venv ML, Node.js, Ollama, RAG |
 | ค | [APPENDIX_C.md](APPENDIX_C.md) | Config และ Code ทั้งหมด: SNMP, DB schema, ML Pipeline, Chat System, RAG |
-| ง | [APPENDIX_D.md](APPENDIX_D.md) | ผลทดสอบ 100 คำถาม (93/100) — ตารางครบทุกข้อ |
+| ง | [APPENDIX_D.md](APPENDIX_D.md) | ผลทดสอบ 100 คำถาม (97/100) — ตารางครบทุกข้อ |
 | จ | [APPENDIX_E.md](APPENDIX_E.md) | เอกสารอ้างอิง + links ไปยัง code/config แต่ละส่วน |
 
 ---
@@ -100,4 +100,5 @@
 | รอบ | ✓ | ✗ | เฉลี่ย |
 |-----|---|---|--------|
 | Baseline (Groq+Qwen) | 97 | 0 | 78s |
-| ปัจจุบัน (qwen local) | 93 | 7 | ~35s/คำถาม |
+| Round 1 (qwen local) | 93 | 7 | ~100s |
+| Round 2 (ปรับ prompt) | 97 | 3 | 77s |

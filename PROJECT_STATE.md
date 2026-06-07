@@ -127,7 +127,7 @@ User (Grafana panel)
 | combined_th_full.jsonl (แปล output→Thai) | Thai | 236,568 pairs |
 | scenario_playbook.json | Thai | 10 scenarios |
 
-**FAISS Index:** 708,562 vectors (faiss_index.bin + faiss_meta.pkl)
+**FAISS Index:** 550,774 vectors (faiss_index.bin + faiss_meta.pkl)
 **Embed model:** all-MiniLM-L6-v2
 
 ### Session Management

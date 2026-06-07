@@ -376,10 +376,10 @@ protocols = ['snmp', 'interface', 'syslog', 'anomaly_isolation', 'anomaly_arima'
 
 ### `build_faiss.py`
 ```python
-# อ่าน embed_p1.npz (TH Q+EN A) + embed_p2.npz (TH Q+TH A) + embed_0.npz (EN Q+EN A)
+# อ่าน embed_p1.npz (TH Q+EN A) + embed_p2.npz (TH Q+TH A)
 # normalize → FAISS IndexFlatIP
 # บันทึก faiss_index.bin + faiss_meta.pkl
-# รวม 708,562 vectors
+# รวม 550,774 vectors
 ```
 
 ---

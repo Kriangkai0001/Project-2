@@ -101,6 +101,31 @@ snmp-server host 192.168.99.89 version 3 priv TelegrafGroup
 
 ## ค.3 Database Schema
 
+### devices
+```sql
+device_id   integer     PK
+hostname    varchar(100) UNIQUE
+ip_address  inet
+type        varchar(20)  -- 'SERVER' | 'SWITCH'
+```
+
+### monitored_devices
+```sql
+hostname     text  PK
+device_type  text
+ip           text
+description  text
+active       boolean  -- default true
+```
+
+### interfaces
+```sql
+interface_id   integer  PK
+device_id      integer  FK → devices
+interface_name varchar(100)
+UNIQUE (device_id, interface_name)
+```
+
 ### snmp
 ```sql
 time        timestamp   -- ทุก 5 นาที
@@ -111,27 +136,91 @@ mem_used    bigint      -- bytes
 uptime      numeric     -- centiseconds
 ```
 
+### snmp_hourly
+```sql
+time_bucket  timestamp  PK
+hostname     text       PK
+avg_cpu_5s   numeric(5,2)
+max_cpu_5s   numeric(5,2)
+avg_mem_used bigint
+avg_mem_free bigint
+uptime_max   numeric
+```
+
 ### interface
 ```sql
-time          timestamp
-hostname      text
-"ifName"      text        -- Gi0/1, Vlan10, Fa0/1
-"ifOperStatus" bigint     -- 1=up, 2=down
-"ifHighSpeed" numeric     -- Mbps
-"ifHCInOctets" numeric   -- bytes สะสม (counter)
+time           timestamp
+hostname       text
+"ifName"       text        -- Gi0/1, Vlan10, Fa0/1
+"ifOperStatus" bigint      -- 1=up, 2=down
+"ifHighSpeed"  numeric     -- Mbps
+"ifHCInOctets" numeric     -- bytes สะสม (counter)
 "ifHCOutOctets" numeric
-"ifInErrors"  numeric
-"ifOutErrors" numeric
-vlan_id       bigint
+"ifInErrors"   numeric
+"ifOutErrors"  numeric
+vlan_id        bigint
+```
+
+### measure_switch_traffic
+```sql
+time          timestamp  PK
+interface_id  integer    FK → interfaces
+in_bytes      bigint
+out_bytes     bigint
 ```
 
 ### syslog
 ```sql
-time     timestamp
-source   text      -- IP ต้นทาง (hostname มักเป็น NULL)
-severity text
-severity_code integer  -- 0=emerg, 3=error, 4=warning, 6=info
-message  text
+time          timestamp
+source        text       -- IP ต้นทาง
+severity      text
+severity_code integer    -- 0=emerg, 3=error, 4=warning, 6=info
+message       text
+```
+
+### syslogs
+```sql
+log_id        integer  PK
+time          timestamptz
+device_id     integer  FK → devices
+hostname      text
+app_name      text
+severity_code integer
+facility_code integer
+message       text
+```
+
+### syslogs_buffer
+```sql
+time          timestamptz
+hostname      text
+appname       text
+severity_code integer
+facility_code integer
+message       text
+tags          jsonb
+fields        jsonb
+-- TRIGGER: trg_process_syslog → ส่งต่อไป syslogs
+```
+
+### raw_telemetry_landing
+```sql
+time    timestamptz
+tags    jsonb
+fields  jsonb
+-- TRIGGER: trigger_telemetry_etl → process_telemetry()
+```
+
+### ml_labels
+```sql
+id            integer  PK
+time_start    timestamp
+time_end      timestamp
+hostname      text
+scenario_id   integer
+scenario_name text
+description   text
+created_at    timestamp
 ```
 
 ### ml_isolation_forest

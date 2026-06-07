@@ -339,21 +339,25 @@ POST /query  {"question": str, "n_results": int}
 GET  /status → {"docs": 550774, "engine": "faiss"}
 ```
 
-**ข้อมูลใน index:** 550,774 vectors
+**ข้อมูลใน index:** 708,562 vectors
+- English Q&A จาก Stack Exchange (network topics)
 - Thai Q&A (แปลจาก Google Translate)
-- scenario_playbook descriptions
 
 ---
 
 ### `build_faiss.py`
 **ที่อยู่จริง:** `/opt/net-chat/rag/build_faiss.py`
-**ทำอะไร:** สร้าง FAISS index จาก embed_p1 + embed_p2 แล้วบันทึก
+**ทำอะไร:** สร้าง FAISS index จาก embed_0 + embed_p1 + embed_p2 แล้วบันทึก
 
-**Source 1 — embed_p1.npz (TH Q + EN A):**
+**Source 1 — embed_0.npz (EN Q + EN A):**
+- มาจาก combined.jsonl (Stack Exchange English) → embed
+- เก็บเป็น .npz
+
+**Source 2 — embed_p1.npz (TH Q + EN A):**
 - มาจาก combined_th.jsonl → embed
 - เก็บเป็น .npz
 
-**Source 2 — embed_p2.npz (TH Q + TH A):**
+**Source 3 — embed_p2.npz (TH Q + TH A):**
 - มาจาก combined_th_full.jsonl → embed
 - เก็บเป็น .npz
 
@@ -361,7 +365,7 @@ GET  /status → {"docs": 550774, "engine": "faiss"}
 ```
 faiss_index.bin — FAISS IndexFlatIP (Inner Product = cosine similarity)
 faiss_meta.pkl  — list of {q, a} metadata
-total: 550,774 vectors
+total: 708,562 vectors
 ```
 
 ---

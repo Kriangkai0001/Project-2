@@ -265,9 +265,9 @@ nohup /opt/net-chat/train-model-chat/venv/bin/python3 \
 ```bash
 cd /opt/net-chat/rag
 
-# สร้าง index จาก embed_p1 (TH Q+EN A) + embed_p2 (TH Q+TH A)
+# สร้าง index จาก embed_0 (EN Q+EN A) + embed_p1 (TH Q+EN A) + embed_p2 (TH Q+TH A)
 python3 build_faiss.py
-# → faiss_index.bin (807MB) — 550,774 vectors
+# → faiss_index.bin (807MB) — 708,562 vectors
 # → faiss_meta.pkl (445MB)
 ```
 
@@ -276,6 +276,7 @@ python3 build_faiss.py
 ### แหล่งข้อมูล
 | ไฟล์ | ขนาด | เนื้อหา |
 |------|------|--------|
+| embed_0.npz | 668MB | EN Q + EN A |
 | embed_p1.npz | 676MB | TH Q + EN A |
 | embed_p2.npz | 667MB | TH Q + TH A |
 
